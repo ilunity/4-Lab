@@ -36,3 +36,5 @@ index.py            <-- скрипт, запускающий программу
 
 Используемые в проекте python библиотеки:
 1. [eel](https://github.com/ChrisKnott/Eel)
+
+__Файл с зависимостями__: [requirements.txt](./requirements.txt)
