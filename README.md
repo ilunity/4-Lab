@@ -2,9 +2,9 @@
 
 ---
 
-- [Intro]
 - <a href="#intro">Intro</a>
-- [Usage](#markdown-header-usage)
+- <a href="#usage">Usage</a>
+- <a href="#libraries">Python libraries</a>
 
 
 ## <a name="intro"></a> Intro
@@ -21,7 +21,7 @@ Doka Expert - Экспертная система, предугадывающа�
 Программа запускается через браузер, установленный по умолчанию.
 
 
-## Python libraries   
+## <a name="libraries"></a> Python libraries   
 
 ---
 
