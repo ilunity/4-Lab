@@ -1,3 +1,5 @@
+const ERROR_INPUT_STYLE = 'input-table__input_error';
+
 const firstTeamInputElems = {
     kills: document.getElementById('first-team__kills'),
     gold: document.getElementById('first-team__gold'),
@@ -21,7 +23,31 @@ const teamsInputs = {
     secondTeam: secondTeamInputElems,
 }
 
-const defineBtnElem = document.querySelector('.define-winner-btn');
+function setErrorInputStyle(errorInput) {
+    errorInput.classList.add(ERROR_INPUT_STYLE);
+}
+
+function removeErrorInputStyle(errorInput) {
+    errorInput.classList.remove(ERROR_INPUT_STYLE);
+}
+
+const defineBtnElem = document.querySelector('.btns-panel__define-winner');
+
+
+const resetBtnElem = document.querySelector('.btns-panel__reset');
+
+resetBtnElem.addEventListener('click', resetApp);
+
+function resetApp() {
+    Object.values(teamsInputs).forEach((teamsInputs) => {
+        Object.values(teamsInputs).forEach((input) => {
+            input.value = '';
+            removeErrorInputStyle(input);
+        })
+    })
+    resultFrame.reset();
+}
+
 
 const TEAMS_COLORS = {
     dire: {
@@ -33,6 +59,7 @@ const TEAMS_COLORS = {
         text: 'Победа сил Света!',
     },
 }
+
 const resultFrame = {
     _elem: document.querySelector('.result-frame'),
     currentColorStyle: null,
@@ -66,8 +93,8 @@ resultFrame.reset = function () {
     resultFrame._elem.textContent = "";
 }
 
-resultFrame.setErrorMessage = function () {
+resultFrame.setErrorInputMessage = function () {
     resultFrame._elem.classList.add('result-frame_error-message');
 }
 
-export {teamsInputs, defineBtnElem, resultFrame};
+export {teamsInputs, setErrorInputStyle, removeErrorInputStyle, defineBtnElem, resultFrame};

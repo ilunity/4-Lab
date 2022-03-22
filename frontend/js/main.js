@@ -1,4 +1,4 @@
-import {teamsInputs, defineBtnElem, resultFrame} from './UI.js';
+import {teamsInputs, setErrorInputStyle, removeErrorInputStyle, defineBtnElem, resultFrame} from './UI.js';
 import {defineWinningTeam} from './backendAPI.js';
 
 
@@ -35,33 +35,34 @@ function checkInputCorrect(inputElem) {
     return inputElem.value && inputElem.value >= 0;
 }
 
+function onBlurErrorInput(event) {
+    if (checkInputCorrect(event.target)) {
+        removeErrorInputStyle(event.target);
+        event.target.removeEventListener('blur', onBlurErrorInput);
+    }
+}
 
-//Object.values(teamsInputs).forEach(teamInputs => {
-//    Object.values(teamInputs).forEach(inputElem => {
-//        inputElem.addEventListener('blur', () => {
-//            if (!checkInputCorrect(inputElem)) {
-//                resultFrame.reset();
-//                inputElem.classList.add('input-table__input_error');
-//                inputElem.focus();
-//                return;
-//            }
-//
-//            inputElem.classList.remove('input-table__input_error');
-//        });
-//    });
-//});
+function listenErrorInput(inputElem) {
+    inputElem.removeEventListener('blur', onBlurErrorInput)
+    inputElem.addEventListener('blur', onBlurErrorInput);
+}
+
+
 
 defineBtnElem.addEventListener('click', () => {
     resultFrame.reset();
     let isErrorsExists = false;
     forEachErrorInput(errorInput => {
         isErrorsExists = true;
-        errorInput.classList.add('input-table__input_error');
+        setErrorInputStyle(errorInput);
+        listenErrorInput(errorInput);
     })
+
     if (isErrorsExists) {
-        resultFrame.setErrorMessage();
+        resultFrame.setErrorInputMessage();
         return;
     }
+
 
     defineWinningTeam(
         getTeamParameters(),

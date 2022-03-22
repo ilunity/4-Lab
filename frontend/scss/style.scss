@@ -7,8 +7,8 @@ $WHITE_COLOR: white;
 $RED_COLOR: #ea3736;
 $BLUE_COLOR: #0071ff;
 
+
 body {
-  min-width: 400px;
   font-family: 'Roboto', sans-serif;
   font-size: 15px;
   color: $WHITE_COLOR;
@@ -79,6 +79,7 @@ main {
 }
 
 .input-table {
+
   width: 80%;
   border-collapse: collapse;
   border-bottom: 2px solid $WHITE_COLOR;
@@ -146,18 +147,50 @@ main {
   border: 1px solid $RED_COLOR;
   background-color: $RED_COLOR;
   border-radius: 0.5rem;
+
+  transition: transform 0.4s ease;
   &:hover {
-    border: 1px solid $WHITE_COLOR;
+    transform: scale(1.05);
   }
   &:active {
-    border: 1px solid $RED_COLOR;
+    transition: transform 0.25s ease;
+    transform: scale(1);
   }
 }
 
-.define-winner-btn {
-  font-size: 1.5rem;
-  padding: 0.5rem;
+.reset-btn {
+  border-radius: 50%;
+  background-color: $WHITE_COLOR;
+
+  transition: transform 0.4s ease;
+  &:hover {
+    transform: scale(1.1);
+  }
+  &:active {
+    transition: transform 0.25s ease;
+    transform: scale(1);
+  }
+}
+
+.btns-panel {
+  display: flex;
+  justify-content: center;
+  align-items: center;
+
   margin-bottom: 3rem;
+
+  user-select: none;
+  &__define-winner {
+    font-size: 1.5rem;
+    padding: 0.5rem;
+    margin-right: 1.5rem;
+  }
+  &__reset {
+    height: 3rem;
+    width: 3rem;
+    padding: 0.5rem;
+
+  }
 }
 
 .result-frame {
@@ -189,13 +222,12 @@ main {
   &_error-message {
     &:before {
       content: 'Все поля должны быть заполнены. Допускаются только неотрицательные значения.';
-      max-width: 20%;
       font-size: 1rem;
       font-style: italic;
       text-align: center;
     }
     &:after {
-      height: 0;
+      height: 1px;
     }
   }
 }
@@ -245,32 +277,56 @@ $created-by-wrapper-width: 26rem;
   color: $RED_COLOR;
 }
 
-@media (max-width: 600px) {
-  .created-by__wrapper {
-    width: $created-by-wrapper-width / 2;
-  }
-}
-
 @media (max-width: 900px) {
   .input-table__parameter-title {
     font-size: 1.3rem;
   }
-  .define-winner-btn {
-    font-size: 1.35rem;
+  .btns-panel {
+    &__define-winner {
+      font-size: 1.35rem;
+    }
+    &__reset{
+      height: 2.75rem;
+      width: 2.75rem;
+    }
   }
   .result-frame {
     font-size: 2.5rem;
   }
 }
 
-@media (max-width: 750px) {
-  .input-table__parameter-title {
-    font-size: 1.1rem;
+@media (max-width: 835px) {
+  .input-table {
+    &__parameter-title {
+      font-size: 1.1rem;
+    }
+    &__parameters-header {
+      font-size: 1.75rem;
+    }
+    &__team-header {
+      font-size: 1.3rem;
+    }
+    &__input {
+      width: 5rem;
+      height: 1.35rem;
+    }
   }
   .result-frame {
     font-size: 2rem;
   }
-  .define-winner-btn {
-    font-size: 1.2rem;
+  .btns-panel {
+    &__define-winner {
+      font-size: 1.2rem;
+    }
+    &__reset {
+      height: 2.6rem;
+      width: 2.6rem;
+    }
+  }
+}
+
+@media (max-width: 600px) {
+  .created-by__wrapper {
+    width: $created-by-wrapper-width / 2;
   }
 }
