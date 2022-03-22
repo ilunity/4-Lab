@@ -1,11 +1,12 @@
 # Doka Expert
 
----
 
 - <a href="#intro">Intro</a>
 - <a href="#structure">Project structure</a>
 - <a href="#usage">Usage</a>
 - <a href="#libraries">Python libraries</a>
+
+---
 
 
 ## <a name="intro"></a> Intro

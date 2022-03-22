@@ -49,7 +49,7 @@ function resetApp() {
 }
 
 
-const TEAMS_COLORS = {
+const TEAMS = {
     dire: {
         colorStyle: 'result-frame_red',
         text: 'Победа сил Тьмы!',
@@ -65,16 +65,16 @@ const resultFrame = {
     currentColorStyle: null,
 }
 
-resultFrame.setWinner = function(teamColor) {
-    if (!Object.keys(TEAMS_COLORS).includes(teamColor)) throw new SyntaxError("Team name doesn't exist");
+resultFrame.setWinner = function(teamName) {
+    if (!Object.keys(TEAMS).includes(teamName)) throw new SyntaxError("Team name doesn't exist");
 
     resultFrame.reset();
-    resultFrame.setText(TEAMS_COLORS[teamColor].text);
-    resultFrame.setColor(TEAMS_COLORS[teamColor].colorStyle);
+    resultFrame.setText(TEAMS[teamName].text);
+    resultFrame.setColor(TEAMS[teamName].colorStyle);
 }
 
 resultFrame.setColor = function (colorStyle) {
-    if (!Object.values(TEAMS_COLORS).find(team => {
+    if (!Object.values(TEAMS).find(team => {
         return team.colorStyle === colorStyle;
     })) throw new SyntaxError("Color doesn't exist");
 
