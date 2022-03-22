@@ -29,8 +29,9 @@ requirements.txt    <-- python зависимости
 
 ## <a name="usage"></a> Usage
 
-Готовая к использованию программа: [DokaExpert.exe](./dist/DokaExpert.exe)  
-Программа запускается через браузер, установленный по умолчанию.
+1. Дистрибутив: [DokaExpert.exe](./dist/DokaExpert.exe)  (Программа запускается через браузер, установленный по умолчанию)
+
+2. Веб-страница: [DokaExpert](https://ilunity.github.io/4-Lab/)
 
 
 ## <a name="libraries"></a> Python libraries   
