@@ -23,6 +23,7 @@ frontend            <-- файлы интерфейса
 python
   expert_system.py  <-- исходный код алгоритма ЭС 
 index.py            <-- скрипт, запускающий программу
+requirements.txt    <-- python зависимости
 ```
 
 
